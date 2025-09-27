@@ -10,8 +10,16 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.extends(
+    "airbnb",
+    "airbnb-typescript",
+    "next/core-web-vitals",
+    "next/typescript"
+  ),
   {
+    parserOptions: {
+      project: "./tsconfig.json",
+    },
     ignores: [
       "node_modules/**",
       ".next/**",
