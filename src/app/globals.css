@@ -10,10 +10,72 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Typography設定を直接追加 */
+  --prose-body: theme(colors.gray.700);
+  --prose-headings: theme(colors.gray.900);
+  --prose-lead: theme(colors.gray.600);
+  --prose-links: theme(colors.blue.600);
+  --prose-bold: theme(colors.gray.900);
+  --prose-counters: theme(colors.gray.500);
+  --prose-bullets: theme(colors.gray.300);
+  --prose-hr: theme(colors.gray.200);
+  --prose-quotes: theme(colors.gray.900);
+  --prose-quote-borders: theme(colors.gray.200);
+  --prose-captions: theme(colors.gray.500);
+  --prose-code: theme(colors.gray.900);
+  --prose-pre-code: theme(colors.gray.200);
+  --prose-pre-bg: theme(colors.gray.800);
+  --prose-th-borders: theme(colors.gray.300);
+  --prose-td-borders: theme(colors.gray.200);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Proseスタイルを手動で追加 */
+.prose {
+  color: var(--prose-body);
+  max-width: 65ch;
+}
+
+.prose h1 {
+  color: var(--prose-headings);
+  font-weight: 800;
+  font-size: 2.25em;
+  margin-top: 0;
+  margin-bottom: 0.8888889em;
+  line-height: 1.1111111;
+}
+
+.prose h2 {
+  color: var(--prose-headings);
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.3333333;
+}
+
+.prose h3 {
+  color: var(--prose-headings);
+  font-weight: 600;
+  font-size: 1.25em;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  line-height: 1.6;
+}
+
+.prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose a {
+  color: var(--prose-links);
+  text-decoration: underline;
+  font-weight: 500;
 }
