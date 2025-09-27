@@ -1,8 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { remark } from 'remark';
-import remarkHtml from 'remark-html';
+import { markdownToHtml } from "./markdown";
 import { Post, PostMeta } from '@/types/post';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
@@ -37,14 +36,11 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   const matterResult = matter(fileContents);
 
   // MarkdownをHTMLに変換
-  const processedContent = await remark()
-    .use(remarkHtml)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  const content = await markdownToHtml(matterResult.content);
 
   return {
     slug,
-    content: contentHtml,
+    content,
     ...(matterResult.data as Omit<Post, 'slug' | 'content'>),
   };
 }
